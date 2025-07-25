@@ -17,7 +17,7 @@ class Wan2skeafCalculation(CalcJob):
     AiiDA calculation plugin wrapping the ``wan2skeaf.py``.
     """
 
-    _DEFAULT_INPUT_BXSF = "input.bxsf"
+    _DEFAULT_INPUT_BXSF = "aiida.bxsf"
     _DEFAULT_OUTPUT_FILE = "wan2skeaf.out"
     _DEFAULT_OUTPUT_BXSF = "output"
 
@@ -53,6 +53,7 @@ class Wan2skeafCalculation(CalcJob):
         spec.input(
             "bxsf_filename",
             valid_type=orm.Str,
+            default=lambda: orm.Str(cls._DEFAULT_INPUT_BXSF),
             serializer=orm.to_aiida_type,
             help="Input BXSF filename of the RemoteData.",
         )
