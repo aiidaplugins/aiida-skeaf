@@ -718,7 +718,7 @@ version = "1.17.0"
 deps = ["Artifacts", "Bravais", "Brillouin", "Comonicon", "Dates", "DelimitedFiles", "DocStringExtensions", "FastLapackInterface", "FileTrees", "LazyArtifacts", "LazyGrids", "LinearAlgebra", "NLSolversBase", "NearestNeighbors", "OffsetArrays", "Optim", "PackageExtensionCompat", "PeriodicTable", "Printf", "ProgressMeter", "Reexport", "Roots", "SpecialFunctions", "Spglib", "StaticArrays", "TOML", "WannierIO"]
 git-tree-sha1 = "d139709596db79bc719b2c19e0f00956b4ba0adf"
 repo-rev = "fermi"
-repo-url = "https://github.com/qiaojunfeng/Wannier.jl.git"
+repo-url = "https://github.com/npaulish/Wannier.jl.git"
 uuid = "2b19380a-1f7e-4d7d-b1b8-8aa60b3321c9"
 version = "0.4.0"
 
