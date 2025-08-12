@@ -37,6 +37,8 @@ def validate_inputs(  # pylint: disable=inconsistent-return-statements
                 != inputs["skeaf"]["parameters"]["fermi_energy"]
             ):
                 return SkeafWorkChain.exit_codes.ERROR_INVALID_INPUT_FERMI.message
+        if "fermi_energy_shift" in inputs["skeaf"]["parameters"]:
+            return SkeafWorkChain.exit_codes.ERROR_INVALID_INPUT_FERMI_SHIFT.message
     elif "fermi_energy" in inputs["wan2skeaf"]["parameters"]:
         return SkeafWorkChain.exit_codes.ERROR_INVALID_INPUT_FERMI.message
 
@@ -111,6 +113,11 @@ class SkeafWorkChain(ProtocolMixin, WorkChain):
             500,
             "ERROR_INVALID_INPUT_FERMI",
             message="Invalid input parameters. Fermi energy is not consistent between skeaf and wan2skeaf.",
+        )
+        spec.exit_code(
+            501,
+            "ERROR_INVALID_INPUT_FERMI_SHIFT",
+            message="Invalid input parameters. Fermi energy shift can't be specified together with fermi_energy.",
         )
 
     @classmethod
@@ -222,7 +229,14 @@ class SkeafWorkChain(ProtocolMixin, WorkChain):
             "output_parameters"
         ].get_dict()
         if "fermi_energy" not in parameters:
-            parameters["fermi_energy"] = w2s_output_params["fermi_energy_computed"]
+            if "fermi_energy_shift" in parameters:
+                parameters["fermi_energy"] = (
+                    w2s_output_params["fermi_energy_computed"]
+                    + parameters["fermi_energy_shift"]
+                )
+                parameters.pop("fermi_energy_shift")
+            else:
+                parameters["fermi_energy"] = w2s_output_params["fermi_energy_computed"]
             inputs.parameters = orm.Dict(dict=parameters)
 
         fermi_energy = parameters["fermi_energy"]
