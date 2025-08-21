@@ -28,7 +28,7 @@ dependencies = [
 ]
 
 [project.urls]
-Source = "https://github.com/qiaojunfeng/aiida-skeaf"
+Source = "https://github.com/aiidaplugins/aiida-skeaf"
 
 [project.optional-dependencies]
 testing = [

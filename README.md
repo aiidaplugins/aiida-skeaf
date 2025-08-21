@@ -61,7 +61,7 @@ A frequency vs angle plot can be found in [examples/results/example_01.png](exam
 ## Development
 
 ```shell
-git clone https://github.com/qiaojunfeng/aiida-skeaf .
+git clone https://github.com/aiidaplugins/aiida-skeaf .
 cd aiida-skeaf
 pip install flit
 flit install -s .[pre-commit,testing]  # install extra dependencies
@@ -74,10 +74,6 @@ See the [developer guide](http://aiida-skeaf.readthedocs.io/en/latest/developer_
 ## License
 
 MIT
-## Contact
-
-qiaojunfeng@outlook.com
-
 
 [ci-badge]: https://github.com/qiaojunfeng/aiida-skeaf/workflows/ci/badge.svg?branch=master
 [ci-link]: https://github.com/qiaojunfeng/aiida-skeaf/actions
