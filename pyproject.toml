@@ -49,6 +49,9 @@ docs = [
 ]
 analysis = ["matplotlib"]
 
+[project.scripts]
+wan2skeaf = "aiida_skeaf.utils.wan2skeaf:main"
+
 # [project.entry-points."aiida.data"]
 # "skeaf" = "aiida_skeaf.data:SkeafParameters"
 [project.entry-points."aiida.calculations"]
